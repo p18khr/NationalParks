@@ -18,12 +18,12 @@ public class ParkServiceImpl implements ParkService {
 	private ParkRepository repo;
 
 	@Override
-	public Park savePark(Park park) {
+	public Park savepark(Park park) {
 		return repo.save(park);
 	}
 
 	@Override
-	public Optional<Park> Get(String id) {
+	public Optional<Park> Get(Long id) {
 		return repo.findById(id);
 	}
 
@@ -34,11 +34,11 @@ public class ParkServiceImpl implements ParkService {
 
 	@Override
 	public void Update(Park park) {
-		repo.updateById(park.getId(),park.getAbout(),park.getActivity(),park.getCity(),park.getHotel(),park.getImage(),park.getName(),park.getState());
+		repo.updateById(park.getId(),park.getAbout(),park.getCity(),park.getImage(),park.getName(),park.getState());
 	}
 
 	@Override
-	public void delete(String id) {
+	public void delete(Long id) {
 		repo.deleteById(id);
 	}
 
@@ -51,6 +51,24 @@ public class ParkServiceImpl implements ParkService {
 	@Override
 	public List<Park> getCity(String city_name) {
 		List<Park> list = repo.filterCity(city_name);
+		return list;
+	}
+
+	@Override
+	public List<String> getSname() {
+		List<String> list = repo.getStates();
+		return list;
+	}
+
+	@Override
+	public List<String> getCname() {
+		List<String> list = repo.getCities();
+		return list;
+	}
+
+	@Override
+	public List<String> getPname() {
+		List<String> list = repo.getParks();
 		return list;
 	}
 

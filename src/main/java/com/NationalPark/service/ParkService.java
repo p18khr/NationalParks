@@ -7,17 +7,23 @@ import java.util.Optional;
 
 public interface ParkService {
 
-	Park savePark(Park park);
+	Park savepark(Park park);
 
-	Optional<Park> Get(String id);
+	Optional<Park> Get(Long id);
 
 	List<Park> getAll();
 
 	void Update(Park park);
 
-	void delete(String id);
+	void delete(Long id);
 
 	List<Park> getState(String state_name);
 
 	List<Park> getCity(String city_name);
+
+	List<String> getSname();
+
+	List<String> getCname();
+
+	List<String> getPname();
 }

@@ -14,8 +14,9 @@ import java.util.Date;
 @Table(name="user_enquiry")
 public class UserEnquiry {
 
-    @Id
-    private String id;
+	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private Long id;
 
 	private String name;
 	private String email;

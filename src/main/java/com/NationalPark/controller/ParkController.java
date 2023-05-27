@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin("http://localhost:3000")
 @RestController
 @RequestMapping("/park-api")
 public class ParkController {
@@ -16,17 +17,18 @@ public class ParkController {
 	private ParkService service;
 
 	@PostMapping
-    public Park savePark(Park park){
-		Park park1 = service.savePark(park);
-		return park1;
+    public Park savePark(@RequestBody Park park){
+		service.savepark(park);
+		return park;
     }
 
 	@GetMapping("/{id}")
 	public Optional<Park> getPark(@PathVariable String id){
-		return service.Get(id);
+		Long idlong = Long.parseLong(id);
+		return service.Get(idlong);
 	}
 
-	@GetMapping()
+	@GetMapping
 	public List<Park> getAllPark(){
 		List<Park> list = service.getAll();
 		return list;
@@ -35,6 +37,24 @@ public class ParkController {
 	@GetMapping("/state/{state_name}")
 	public List<Park> getState(@PathVariable String state_name){
 		List<Park> list = service.getState(state_name);
+		return list;
+	}
+
+	@GetMapping("/state")
+	public List<String> getStateName(){
+		List<String> list = service.getSname();
+		return list;
+	}
+
+	@GetMapping("/park")
+	public List<String> getParkName(){
+		List<String> list = service.getPname();
+		return list;
+	}
+
+	@GetMapping("/city")
+	public List<String> getCityName(){
+		List<String> list = service.getCname();
 		return list;
 	}
 
@@ -54,7 +74,8 @@ public class ParkController {
 
 	@DeleteMapping("/{id}")
 	public String deletePark(@PathVariable String id){
-		service.delete(id);
+		Long idnew = Long.parseLong(id);
+		service.delete(idnew);
 		return "park entry with id "+id+"deleted";
 	}
 

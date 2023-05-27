@@ -15,29 +15,20 @@ import java.util.ArrayList;
 public class Park {
 
 	@Id
-	private String id;
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private Long id;
 
-	@Column(name="name",nullable = false)
 	private String name;
 
-	@Column(name="city",nullable = false)
 	private String city;
 
-	@Column(name="state",nullable = false)
 	private String state;
 
-	@Column(name="image",nullable = false)
+	@Column(length = 100000)
 	private String image;
 
-	@Column(name="about",nullable = false)
+	@Column(length = 8000)
 	private String about;
-
-	@Column(name="activity",nullable = false)
-	private String activity;
-
-	@Column(name="hotel",nullable = false)
-	private String hotel;
-
 
 	@Transient
 	private ArrayList<String> hotelsList;

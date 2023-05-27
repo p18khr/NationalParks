@@ -13,23 +13,26 @@ import lombok.*;
 public class Hotel {
 
 	@Id
-	private String id;
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private Long id;
 
-	@Column(name="name",nullable = false)
 	private String name;
 
-	@Column(name="price",nullable = false)
 	private double price;
 
-	@Column(name="about",nullable = false)
+	@Column(length = 1000)
 	private String about;
 
-	@Column(name="location",nullable = false)
 	private String location;
 
-	@Column(name="image",nullable = false)
+	@Column(length = 100000)
 	private String image;
 
-	@Column(name="park_id",nullable = false)
-	private int park_id;
+	private Long park_id;
+
+	private String ac;
+	private String pool;
+	private String room;
+	private String wifi;
+	private String laundry;
 }
