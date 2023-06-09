@@ -1,5 +1,6 @@
 package com.NationalPark.service;
 
+import com.NationalPark.models.FilterBody;
 import com.NationalPark.models.Park;
 
 import java.util.List;
@@ -26,4 +27,6 @@ public interface ParkService {
 	List<String> getCname();
 
 	List<String> getPname();
+
+	List<Park> Filter(FilterBody filter);
 }

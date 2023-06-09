@@ -14,4 +14,12 @@ public interface HotelService {
 	Optional<Hotel> getHotel(Long idnew);
 
 	List<Hotel> getHotelById(Long id);
+
+	List<Hotel> sortHotel(String park_id);
+
+	List<Hotel> reverseHotel(String park_id);
+
+	void update(Hotel hotel);
+
+	void delete(String id);
 }

@@ -1,6 +1,7 @@
 package com.NationalPark.serviceImpl;
 
 import com.NationalPark.dao.ParkRepository;
+import com.NationalPark.models.FilterBody;
 import com.NationalPark.models.Park;
 import com.NationalPark.service.ParkService;
 import jakarta.transaction.Transactional;
@@ -70,6 +71,11 @@ public class ParkServiceImpl implements ParkService {
 	public List<String> getPname() {
 		List<String> list = repo.getParks();
 		return list;
+	}
+
+	@Override
+	public List<Park> Filter(FilterBody filter) {
+		return repo.filterAll(filter.getActivity_name(),filter.getPark_name(),filter.getCity(),filter.getState());
 	}
 
 

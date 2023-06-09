@@ -26,4 +26,6 @@ public class Activity {
     private String image;
 	private Long park_id;
 	private String type;
+
+	private int frequency=0;
 }

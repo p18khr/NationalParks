@@ -32,7 +32,7 @@ public class Hotel {
 
 	private String ac;
 	private String pool;
-	private String room;
+	private String room = "Yes";
 	private String wifi;
 	private String laundry;
 }

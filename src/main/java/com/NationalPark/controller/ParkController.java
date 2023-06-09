@@ -1,5 +1,6 @@
 package com.NationalPark.controller;
 
+import com.NationalPark.models.FilterBody;
 import com.NationalPark.models.Park;
 import com.NationalPark.service.ParkService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Filter;
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin({"http://localhost:3000/","http://localhost:3001/"})
 @RestController
 @RequestMapping("/park-api")
 public class ParkController {
@@ -52,6 +54,7 @@ public class ParkController {
 		return list;
 	}
 
+
 	@GetMapping("/city")
 	public List<String> getCityName(){
 		List<String> list = service.getCname();
@@ -64,7 +67,11 @@ public class ParkController {
 		return list;
 	}
 
-
+    @PostMapping("/filter")
+	public List<Park> filter(@RequestBody FilterBody filter){
+       List<Park> list = service.Filter(filter);
+	   return list;
+	}
 
 	@PutMapping
 	public Park updatePark(@RequestBody Park park){
@@ -73,10 +80,9 @@ public class ParkController {
 	}
 
 	@DeleteMapping("/{id}")
-	public String deletePark(@PathVariable String id){
+	public void deletePark(@PathVariable String id){
 		Long idnew = Long.parseLong(id);
 		service.delete(idnew);
-		return "park entry with id "+id+"deleted";
 	}
 
 

@@ -20,12 +20,15 @@ public interface ParkRepository extends JpaRepository<Park, Long> {
 	@Query(value = "select * from Park u where u.city = :city",nativeQuery = true)
 	List<Park> filterCity(@Param(value = "city")String city_name);
 
-	@Query(value = "select u.city from Park u",nativeQuery = true)
+	@Query(value = "select distinct(u.city) from Park u",nativeQuery = true)
 	List<String> getCities();
 
-	@Query(value = "select u.state from Park u",nativeQuery = true)
+	@Query(value = "select distinct(u.state) from Park u",nativeQuery = true)
 	List<String> getStates();
 
-	@Query(value = "select u.name from Park u",nativeQuery = true)
+	@Query(value = "select distinct(u.name),u.id from Park u",nativeQuery = true)
 	List<String> getParks();
+
+    @Query(value = "select distinct(u.name),u.id,u.image,u.city,u.state,u.about from Park u inner join Activity a on u.id = a.park_id where u.name like %:park_name% and u.state like %:state% and u.city like %:city% and a.name like %:activity_name%",nativeQuery = true)
+	List<Park> filterAll(@Param(value = "activity_name")String activity_name,@Param(value = "park_name") String park_name,@Param(value = "city") String city,@Param(value = "state") String state);
 }

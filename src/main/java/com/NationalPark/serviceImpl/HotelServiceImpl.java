@@ -38,4 +38,27 @@ public class HotelServiceImpl implements HotelService {
 		List<Hotel> list = repo.findHById(id);
 		return list;
 	}
+
+	@Override
+	public List<Hotel> sortHotel(String park_id) {
+		List<Hotel> list = repo.sort(park_id);
+		return list;
+	}
+
+	@Override
+	public List<Hotel> reverseHotel(String park_id) {
+		List<Hotel> list = repo.reverse(park_id);
+		return list;
+	}
+
+	@Override
+	public void update(Hotel hotel) {
+		repo.update(hotel.getId(),hotel.getAbout(),hotel.getImage(),hotel.getName(),hotel.getAc(),hotel.getLaundry(),hotel.getLocation(),hotel.getPool(),hotel.getWifi(),hotel.getPrice());
+	}
+
+	@Override
+	public void delete(String id) {
+		Long idlong = Long.parseLong(id);
+		repo.deleteById(idlong);
+	}
 }
