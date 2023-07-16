@@ -1,7 +1,7 @@
 package com.NationalPark.serviceImpl;
 
 import com.NationalPark.dao.BlogRepository;
-import com.NationalPark.models.Blog;
+import com.NationalPark.models.blog;
 import com.NationalPark.service.BlogService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,24 +19,24 @@ public class BlogServiceImpl implements BlogService {
 	private BlogRepository repo;
 
 	@Override
-	public Blog saveBlog(Blog blog) {
+	public blog saveBlog(blog blog) {
 		blog.setTimestamp(String.valueOf(new Date()));
 		return repo.save(blog);
 	}
 
 	@Override
-	public List<Blog> getblogs() {
+	public List<blog> getblogs() {
 		return repo.findAll();
 	}
 
 	@Override
-	public Optional<Blog> getblog(String id) {
+	public Optional<blog> getblog(String id) {
 		Long idlong = Long.parseLong(id);
 		return repo.findById(idlong);
 	}
 
 	@Override
-	public void update(Blog blog) {
+	public void update(blog blog) {
 		repo.update(blog.getId(),blog.getImage(),blog.getContent(),blog.getTimestamp(),blog.getTitle());
 	}
 

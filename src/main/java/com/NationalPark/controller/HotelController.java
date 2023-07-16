@@ -1,6 +1,6 @@
 package com.NationalPark.controller;
 
-import com.NationalPark.models.Hotel;
+import com.NationalPark.models.hotel;
 import com.NationalPark.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,43 +18,43 @@ public class HotelController {
 
 
 	@PostMapping
-	public Hotel saveHotel(@RequestBody Hotel hotel){
-		Hotel hotel1 = service.saveHotel(hotel);
+	public hotel saveHotel(@RequestBody hotel hotel){
+		com.NationalPark.models.hotel hotel1 = service.saveHotel(hotel);
 		return hotel1;
 	}
 
 	@GetMapping
-	public List<Hotel> getAll(){
-		List<Hotel> list = service.getHotels();
+	public List<hotel> getAll(){
+		List<hotel> list = service.getHotels();
 		return list;
 	}
 
 	@GetMapping("/park/{park_id}")
-	public List<Hotel> getAllByPark(@PathVariable String park_id){
+	public List<hotel> getAllByPark(@PathVariable String park_id){
 		Long idlong = Long.parseLong(park_id);
 		return service.getHotelById(idlong);
 	}
 
 	@GetMapping("/{id}")
-	public Optional<Hotel> get(@PathVariable String id){
+	public Optional<hotel> get(@PathVariable String id){
 		Long idlong = Long.parseLong(id);
 		return service.getHotel(idlong);
 	}
 
 	@GetMapping("/sort/{park_id}")
-	public List<Hotel> sort(@PathVariable String park_id){
-		List<Hotel> list = service.sortHotel(park_id);
+	public List<hotel> sort(@PathVariable String park_id){
+		List<hotel> list = service.sortHotel(park_id);
 		return list;
 	}
 
 	@GetMapping("/reverse/{park_id}")
-	public List<Hotel> reverse(@PathVariable String park_id){
-		List<Hotel> list = service.reverseHotel(park_id);
+	public List<hotel> reverse(@PathVariable String park_id){
+		List<hotel> list = service.reverseHotel(park_id);
 		return list;
 	}
 
 	@PutMapping
-	public void update(@RequestBody Hotel hotel){
+	public void update(@RequestBody hotel hotel){
 		service.update(hotel);
 
 	}

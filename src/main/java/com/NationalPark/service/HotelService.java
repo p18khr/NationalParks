@@ -1,25 +1,25 @@
 package com.NationalPark.service;
 
-import com.NationalPark.models.Hotel;
+import com.NationalPark.models.hotel;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface HotelService {
 
-	Hotel saveHotel(Hotel hotel);
+	hotel saveHotel(hotel hotel);
 
-	List<Hotel> getHotels();
+	List<hotel> getHotels();
 
-	Optional<Hotel> getHotel(Long idnew);
+	Optional<hotel> getHotel(Long idnew);
 
-	List<Hotel> getHotelById(Long id);
+	List<hotel> getHotelById(Long id);
 
-	List<Hotel> sortHotel(String park_id);
+	List<hotel> sortHotel(String park_id);
 
-	List<Hotel> reverseHotel(String park_id);
+	List<hotel> reverseHotel(String park_id);
 
-	void update(Hotel hotel);
+	void update(hotel hotel);
 
 	void delete(String id);
 }

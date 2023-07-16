@@ -1,18 +1,18 @@
 package com.NationalPark.service;
 
-import com.NationalPark.models.Blog;
+import com.NationalPark.models.blog;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface BlogService {
-	Blog saveBlog(Blog blog);
+	blog saveBlog(blog blog);
 
-	List<Blog> getblogs();
+	List<blog> getblogs();
 
-	Optional<Blog> getblog(String id);
+	Optional<blog> getblog(String id);
 
-	void update(Blog blog);
+	void update(blog blog);
 
 	void delete(String id);
 }

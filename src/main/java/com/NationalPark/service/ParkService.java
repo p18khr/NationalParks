@@ -1,26 +1,26 @@
 package com.NationalPark.service;
 
 import com.NationalPark.models.FilterBody;
-import com.NationalPark.models.Park;
+import com.NationalPark.models.park;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ParkService {
 
-	Park savepark(Park park);
+	park savepark(park park);
 
-	Optional<Park> Get(Long id);
+	Optional<park> Get(Long id);
 
-	List<Park> getAll();
+	List<park> getAll();
 
-	void Update(Park park);
+	void Update(park park);
 
 	void delete(Long id);
 
-	List<Park> getState(String state_name);
+	List<park> getState(String state_name);
 
-	List<Park> getCity(String city_name);
+	List<park> getCity(String city_name);
 
 	List<String> getSname();
 
@@ -28,5 +28,7 @@ public interface ParkService {
 
 	List<String> getPname();
 
-	List<Park> Filter(FilterBody filter);
+	List<park> Filter(FilterBody filter);
+
+	List<park> getAnimal(String animal_name);
 }

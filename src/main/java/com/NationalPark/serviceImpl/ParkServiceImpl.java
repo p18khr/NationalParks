@@ -2,7 +2,7 @@ package com.NationalPark.serviceImpl;
 
 import com.NationalPark.dao.ParkRepository;
 import com.NationalPark.models.FilterBody;
-import com.NationalPark.models.Park;
+import com.NationalPark.models.park;
 import com.NationalPark.service.ParkService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,22 +19,22 @@ public class ParkServiceImpl implements ParkService {
 	private ParkRepository repo;
 
 	@Override
-	public Park savepark(Park park) {
+	public park savepark(park park) {
 		return repo.save(park);
 	}
 
 	@Override
-	public Optional<Park> Get(Long id) {
+	public Optional<park> Get(Long id) {
 		return repo.findById(id);
 	}
 
 	@Override
-	public List<Park> getAll() {
+	public List<park> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public void Update(Park park) {
+	public void Update(park park) {
 		repo.updateById(park.getId(),park.getAbout(),park.getCity(),park.getImage(),park.getName(),park.getState());
 	}
 
@@ -44,14 +44,14 @@ public class ParkServiceImpl implements ParkService {
 	}
 
 	@Override
-	public List<Park> getState(String state_name) {
-		List<Park> list = repo.filterState(state_name);
+	public List<park> getState(String state_name) {
+		List<park> list = repo.filterState(state_name);
 		return list;
 	}
 
 	@Override
-	public List<Park> getCity(String city_name) {
-		List<Park> list = repo.filterCity(city_name);
+	public List<park> getCity(String city_name) {
+		List<park> list = repo.filterCity(city_name);
 		return list;
 	}
 
@@ -74,8 +74,13 @@ public class ParkServiceImpl implements ParkService {
 	}
 
 	@Override
-	public List<Park> Filter(FilterBody filter) {
+	public List<park> Filter(FilterBody filter) {
 		return repo.filterAll(filter.getActivity_name(),filter.getPark_name(),filter.getCity(),filter.getState());
+	}
+
+	@Override
+	public List<park> getAnimal(String animal_name) {
+		return repo.animal(animal_name);
 	}
 
 

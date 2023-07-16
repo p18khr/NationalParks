@@ -1,29 +1,29 @@
 package com.NationalPark.service;
 
-import com.NationalPark.models.Activity;
+import com.NationalPark.models.activity;
 import com.NationalPark.models.UpdateActivity;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ActivityService {
-	Optional<Activity> getActivity(Long idlong);
+	Optional<activity> getActivity(Long idlong);
 
-	List<Activity> getActivities();
+	List<activity> getActivities();
 
-	Activity saveActivity(Activity activity);
+	activity saveActivity(activity activity);
 
-	List<Activity> getSafari();
+	List<activity> getSafari();
 
-	List<Activity> getOther();
+	List<activity> getOther();
 
-	List<Activity> getSafariById(Long idlong);
+	List<activity> getSafariById(Long idlong);
 
-	List<Activity> getSafariByParkId(String park_id);
+	List<activity> getSafariByParkId(String park_id);
 
-	List<Activity> getOthersByParkId(String park_id);
+	List<activity> getOthersByParkId(String park_id);
 
-	List<Activity> getOtherById(String id);
+	List<activity> getOtherById(String id);
 
 	List<String> getActivityName();
 
@@ -31,5 +31,5 @@ public interface ActivityService {
 
 	void delete(String id);
 
-	List<Activity> getAllByParkId(String park_id);
+	List<activity> getAllByParkId(String park_id);
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @Builder
 @Entity
 @Table(name="park")
-public class Park {
+public class park {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -23,6 +23,12 @@ public class Park {
 	private String city;
 
 	private String state;
+
+	private String animal;
+
+	private String airport;
+
+	private String railway;
 
 	@Column(length = 100000)
 	private String image;

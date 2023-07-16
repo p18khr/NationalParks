@@ -1,7 +1,7 @@
 package com.NationalPark.serviceImpl;
 
 import com.NationalPark.dao.HotelRepository;
-import com.NationalPark.models.Hotel;
+import com.NationalPark.models.hotel;
 import com.NationalPark.service.HotelService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,42 +18,42 @@ public class HotelServiceImpl implements HotelService {
 	private HotelRepository repo;
 
 	@Override
-	public Hotel saveHotel(Hotel hotel) {
+	public hotel saveHotel(hotel hotel) {
 		return repo.save(hotel);
 	}
 
 	@Override
-	public List<Hotel> getHotels() {
-		List<Hotel> list = repo.findAll();
+	public List<hotel> getHotels() {
+		List<hotel> list = repo.findAll();
 		return list;
 	}
 
 	@Override
-	public Optional<Hotel> getHotel(Long idnew) {
+	public Optional<hotel> getHotel(Long idnew) {
 		return repo.findById(idnew);
 	}
 
 	@Override
-	public List<Hotel> getHotelById(Long id) {
-		List<Hotel> list = repo.findHById(id);
+	public List<hotel> getHotelById(Long id) {
+		List<hotel> list = repo.findHById(id);
 		return list;
 	}
 
 	@Override
-	public List<Hotel> sortHotel(String park_id) {
-		List<Hotel> list = repo.sort(park_id);
+	public List<hotel> sortHotel(String park_id) {
+		List<hotel> list = repo.sort(park_id);
 		return list;
 	}
 
 	@Override
-	public List<Hotel> reverseHotel(String park_id) {
-		List<Hotel> list = repo.reverse(park_id);
+	public List<hotel> reverseHotel(String park_id) {
+		List<hotel> list = repo.reverse(park_id);
 		return list;
 	}
 
 	@Override
-	public void update(Hotel hotel) {
-		repo.update(hotel.getId(),hotel.getAbout(),hotel.getImage(),hotel.getName(),hotel.getAc(),hotel.getLaundry(),hotel.getLocation(),hotel.getPool(),hotel.getWifi(),hotel.getPrice());
+	public void update(hotel hotel) {
+		repo.update(hotel.getId(),hotel.getAbout(),hotel.getImage1(),hotel.getImage2(),hotel.getImage3(),hotel.getImage4(),hotel.getImage5(),hotel.getImage6(),hotel.getImage7(),hotel.getImage8(),hotel.getImage9(),hotel.getImage10(),hotel.getName(),hotel.getAc(),hotel.getLaundry(),hotel.getLocation(),hotel.getPool(),hotel.getWifi(),hotel.getPrice());
 	}
 
 	@Override

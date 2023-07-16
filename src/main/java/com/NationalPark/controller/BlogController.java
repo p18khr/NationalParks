@@ -1,10 +1,9 @@
 package com.NationalPark.controller;
 
-import com.NationalPark.models.Blog;
+import com.NationalPark.models.blog;
 import com.NationalPark.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,25 +17,25 @@ public class BlogController {
 	private BlogService service;
 
 	@PostMapping
-	public Blog saveBlog(@RequestBody Blog blog){
-		Blog blog1 = service.saveBlog(blog);
+	public blog saveBlog(@RequestBody blog blog){
+		com.NationalPark.models.blog blog1 = service.saveBlog(blog);
 		return blog1;
 	}
 
 	@GetMapping
-	public List<Blog> getBlogs(){
-		List<Blog> list = service.getblogs();
+	public List<blog> getBlogs(){
+		List<blog> list = service.getblogs();
 		return list;
 	}
 
 	@GetMapping(value = "/{id}")
-	public Optional<Blog> getBlog(@PathVariable String id){
-		Optional<Blog> blog = service.getblog(id);
+	public Optional<blog> getBlog(@PathVariable String id){
+		Optional<blog> blog = service.getblog(id);
 		return blog;
 	}
 
 	@PutMapping
-	public void updateBlog(@RequestBody Blog blog){
+	public void updateBlog(@RequestBody blog blog){
 		service.update(blog);
 	}
 

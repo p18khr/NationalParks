@@ -1,14 +1,13 @@
 package com.NationalPark.controller;
 
 import com.NationalPark.models.FilterBody;
-import com.NationalPark.models.Park;
+import com.NationalPark.models.park;
 import com.NationalPark.service.ParkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Filter;
 
 @CrossOrigin({"http://localhost:3000/","http://localhost:3001/"})
 @RestController
@@ -19,26 +18,26 @@ public class ParkController {
 	private ParkService service;
 
 	@PostMapping
-    public Park savePark(@RequestBody Park park){
+    public park savePark(@RequestBody park park){
 		service.savepark(park);
 		return park;
     }
 
 	@GetMapping("/{id}")
-	public Optional<Park> getPark(@PathVariable String id){
+	public Optional<park> getPark(@PathVariable String id){
 		Long idlong = Long.parseLong(id);
 		return service.Get(idlong);
 	}
 
 	@GetMapping
-	public List<Park> getAllPark(){
-		List<Park> list = service.getAll();
+	public List<park> getAllPark(){
+		List<park> list = service.getAll();
 		return list;
 	}
 
 	@GetMapping("/state/{state_name}")
-	public List<Park> getState(@PathVariable String state_name){
-		List<Park> list = service.getState(state_name);
+	public List<park> getState(@PathVariable String state_name){
+		List<park> list = service.getState(state_name);
 		return list;
 	}
 
@@ -54,27 +53,37 @@ public class ParkController {
 		return list;
 	}
 
-
+   // get all city name
 	@GetMapping("/city")
 	public List<String> getCityName(){
 		List<String> list = service.getCname();
 		return list;
 	}
 
+
+    // get
 	@GetMapping("/city/{city_name}")
-	public List<Park> getCity(@PathVariable String city_name){
-		List<Park> list = service.getCity(city_name);
+	public List<park> getCity(@PathVariable String city_name){
+		List<park> list = service.getCity(city_name);
 		return list;
 	}
 
+	@GetMapping("/animal/{animal_name}")
+	public List<park> getAnimal(@PathVariable String animal_name){
+		List<park> list = service.getAnimal(animal_name);
+		return list;
+	}
+
+
+
     @PostMapping("/filter")
-	public List<Park> filter(@RequestBody FilterBody filter){
-       List<Park> list = service.Filter(filter);
+	public List<park> filter(@RequestBody FilterBody filter){
+       List<park> list = service.Filter(filter);
 	   return list;
 	}
 
 	@PutMapping
-	public Park updatePark(@RequestBody Park park){
+	public park updatePark(@RequestBody park park){
 		service.Update(park);
 		return park;
 	}

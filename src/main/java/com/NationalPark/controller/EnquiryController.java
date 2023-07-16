@@ -40,7 +40,7 @@ public class EnquiryController {
 		return enquiry1;
 	}
 
-	// get all Hotel Enquiry
+	// get all hotel Enquiry
 	@GetMapping(value = "/hotel-enquiry")
 	public List<HotelEnquiry> getAllHotelEnquiry(){
 		List<HotelEnquiry> list = service.getAllHotel();

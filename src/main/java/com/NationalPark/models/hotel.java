@@ -10,7 +10,7 @@ import lombok.*;
 @Builder
 @Entity
 @Table(name="hotel")
-public class Hotel {
+public class hotel {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -26,7 +26,34 @@ public class Hotel {
 	private String location;
 
 	@Column(length = 100000)
-	private String image;
+	private String image1;
+
+	@Column(length = 100000)
+	private String image2;
+
+	@Column(length = 100000)
+	private String image3;
+
+	@Column(length = 100000)
+	private String image4;
+
+	@Column(length = 100000)
+	private String image5;
+
+	@Column(length = 100000)
+	private String image6;
+
+	@Column(length = 100000)
+	private String image7;
+
+	@Column(length = 100000)
+	private String image8;
+
+	@Column(length = 100000)
+	private String image9;
+
+	@Column(length = 100000)
+	private String image10;
 
 	private Long park_id;
 

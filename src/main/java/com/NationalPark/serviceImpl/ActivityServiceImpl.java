@@ -1,7 +1,7 @@
 package com.NationalPark.serviceImpl;
 
 import com.NationalPark.dao.ActivityRepository;
-import com.NationalPark.models.Activity;
+import com.NationalPark.models.activity;
 import com.NationalPark.models.UpdateActivity;
 import com.NationalPark.service.ActivityService;
 import jakarta.transaction.Transactional;
@@ -19,47 +19,47 @@ public class ActivityServiceImpl implements ActivityService {
 	private ActivityRepository repo;
 
 	@Override
-	public Optional<Activity> getActivity(Long idlong) {
+	public Optional<activity> getActivity(Long idlong) {
 		return repo.findById(idlong);
 	}
 
 	@Override
-	public List<Activity> getActivities() {
+	public List<activity> getActivities() {
 		return repo.findAll();
 	}
 
 	@Override
-	public Activity saveActivity(Activity activity) {
+	public activity saveActivity(activity activity) {
 		return repo.save(activity);
 	}
 
 	@Override
-	public List<Activity> getSafari() {
+	public List<activity> getSafari() {
 		return repo.findSafari();
 	}
 
 	@Override
-	public List<Activity> getOther() {
+	public List<activity> getOther() {
 		return repo.findOthers();
 	}
 
 	@Override
-	public List<Activity> getSafariById(Long idlong) {
+	public List<activity> getSafariById(Long idlong) {
 		return repo.findSafariById(idlong);
 	}
 
 	@Override
-	public List<Activity> getSafariByParkId(String park_id) {
+	public List<activity> getSafariByParkId(String park_id) {
 		return repo.findSafariByParkId(park_id);
 	}
 
 	@Override
-	public List<Activity> getOthersByParkId(String park_id) {
+	public List<activity> getOthersByParkId(String park_id) {
 		return repo.findOthersByParkId(park_id);
 	}
 
 	@Override
-	public List<Activity> getOtherById(String id) {
+	public List<activity> getOtherById(String id) {
 		return repo.findOthersById(id);
 	}
 
@@ -80,7 +80,7 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	@Override
-	public List<Activity> getAllByParkId(String park_id) {
+	public List<activity> getAllByParkId(String park_id) {
 		return repo.getAll(park_id);
 	}
 }
