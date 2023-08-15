@@ -75,7 +75,7 @@ public class ParkServiceImpl implements ParkService {
 
 	@Override
 	public List<park> Filter(FilterBody filter) {
-		return repo.filterAll(filter.getActivity_name(),filter.getPark_name(),filter.getCity(),filter.getState());
+		return repo.filterAll(filter.getActivity_name(),filter.getPark_name(),filter.getCity(),filter.getState(),filter.getAnimal());
 	}
 
 	@Override

@@ -13,4 +13,5 @@ public class FilterBody {
 	private String state;
 	private String city;
 	private String activity_name;
+	private String animal;
 }
