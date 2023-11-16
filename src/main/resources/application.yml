@@ -6,7 +6,7 @@ spring:
   datasource:
     url: jdbc:mysql://gojunglee-01.c5ujumpvfcx2.ap-south-1.rds.amazonaws.com:3306/gojunglee
     username: prakhar
-    password: prakharpunj123
+    password: Prakhar123
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
